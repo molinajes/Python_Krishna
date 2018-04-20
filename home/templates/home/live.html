@@ -1,0 +1,26 @@
+{% extends "templates/common/main.html" %}
+{% load static %}
+
+
+{% block content %}
+<div class="page">
+    <h2>Upcoming Performances</h2>
+    <p class="bandsInTown">
+       <script charset="utf-8" src="https://widget.bandsintown.com/main.min.js"></script>
+        <a class="bit-widget-initializer" data-artist-name="CelesteKrishna" data-display-local-dates="false" data-display-past-dates="true" data-auto-style="false" data-text-color="#000000" data-link-color="#000000" data-popup-background-color="rgba(0,0,0,0)" data-background-color="rgba(0,0,0,0)" data-display-limit="15" data-link-text-color="#FFFFFF"></a>
+    </p>
+
+    <h2><a href="javascript: $('.vids').slideToggle();">Live Videos</a></h2>
+    <div class="vids">
+        <p>
+            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ew8W0ryI9ac?rel=0" frameborder="0" allowfullscreen></iframe>
+        </p>
+
+        <p>
+           <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/EVkN_gAS_1o?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+        </p>
+    </div>
+
+
+</div>
+{% endblock content %}

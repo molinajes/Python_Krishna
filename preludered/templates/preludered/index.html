@@ -1,0 +1,91 @@
+{% extends "templates/common/main.html" %}
+{% load static %}
+
+{% block other_head %}
+<link rel="stylesheet" href="{% static 'preludered/pr-main.css' %}">
+<link  href="//cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="pagePreludered">
+
+    <div class="columnRight">
+
+        <div class="playerDirections">
+            <img src="{% static 'img/player-directions-whenpaused.png' %}">
+        </div>
+        <div class="playerWrap">
+            <a href="javascript: player.pause();" class="playerCenterCircle"></a>
+            <img class="playerClip" src="{% static 'img/player-clip.png' %}">
+            <img id="playerCircle" src="{% static 'img/player-circle.png' %}" usemap="#Map">
+            <map name="Map" id="Map">
+                <area alt="" title="" href="javascript: player.play(1);" shape="poly" coords="172,173,98,31,173,11" />
+                <area alt="" title="" href="javascript: player.play(2);" shape="poly" coords="175,173,176,12,251,32" />
+                <area alt="" title="" href="javascript: player.play(3);" shape="poly" coords="173,170,253,34,311,87" />
+                <area alt="" title="" href="javascript: player.play(4);" shape="poly" coords="175,170,312,91,334,155" />
+                <area alt="" title="" href="javascript: player.play(5);" shape="poly" coords="177,174,333,157,322,234" />
+                <area alt="" title="" href="javascript: player.play(6);" shape="poly" coords="175,175,320,234,276,297" />
+                <area alt="" title="" href="javascript: player.play(7);" shape="poly" coords="175,177,276,299,208,332" />
+                <area alt="" title="" href="javascript: player.play(8);" shape="poly" coords="171,175,206,332,132,331" />
+                <area alt="" title="" href="javascript: player.play(9);" shape="poly" coords="173,175,130,330,64,294" />
+                <area alt="" title="" href="javascript: player.play(10);" shape="poly" coords="169,175,63,292,21,231" />
+                <area alt="" title="" href="javascript: player.play(11);" shape="poly" coords="168,173,21,228,12,154" />
+                <area alt="" title="" href="javascript: player.play(12);" shape="poly" coords="168,171,13,152,41,81" />
+                <area alt="" title="" href="javascript: player.play(13);" shape="poly" coords="166,168,40,79,95,33" />
+            </map>
+
+        </div>
+
+    </div>
+
+    <div class="columnLeft">
+        <div class="columnLeftPage">
+
+            {% include "preludered/nav-prelude-red.html" %}
+
+        </div>
+
+        <div class="nav">
+            <img src="{% static 'img/nav.png' %}" usemap="#image-map">
+            <map name="image-map">
+                <area href="#" class="nav-prelude-red" coords="65,1,161,12" shape="rect">
+                <area href="#" class="nav-libretto" coords="49,14,109,29" shape="rect">
+                <area href="#" class="nav-notes" coords="126,18,173,28" shape="rect">
+                <area href="#" class="nav-credits" coords="24,34,78,46" shape="rect">
+                <area href="#" class="nav-music-videos" coords="96,33,199,45" shape="rect">
+                <area href="https://bit.ly/preludereddigital " target="_blank" class="nav-digital-copy" coords="2,49,95,63" shape="rect">
+                <area href="https://bit.ly/preluderedalbum" target="_blank" class="nav-signed-album" coords="115,50,220,63" shape="rect">
+            </map>
+        </div>
+
+    </div>
+
+
+</div>
+
+{% endblock content %}
+
+
+{% block other_foot %}
+<script src="//cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+<script src="{% static 'preludered/howler.js' %}"></script>
+<script src="{% static 'preludered/pr-player.js' %}"></script>
+
+<script type='text/javascript'>
+$(document).ready(function(){
+    player.init();
+    nav.init();
+
+    track = Math.floor((Math.random() * player.totalTracks) + 1);
+
+    {% if auto_play == 1 %}
+        player.play(track);
+    {% else %}
+        player.positionCircle(track);
+    {% endif %}
+});
+</script>
+
+{% endblock %}

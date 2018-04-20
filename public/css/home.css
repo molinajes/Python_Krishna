@@ -1,0 +1,61 @@
+
+body {
+    background: url('../img/bg-home.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color:#000000;
+}
+
+
+
+nav.main ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+    font-size:15px;
+    z-index:9999;
+}
+    nav.main > ul {
+        padding:8px 0 0 18px;
+    }
+
+    nav.main > ul > li {
+        float:left;
+        padding-right:25px;
+    }
+    nav.main ul li a:hover {
+        text-shadow: 2px 2px 2px rgba(21, 170, 172, 1);
+    }
+    nav.main li.menu {
+        position:relative;
+    }
+    nav.main li.menu:hover ul.menu {
+        display:block;
+    }
+        nav.main ul.menu {
+            position:absolute;
+            overflow:visible;
+            white-space:nowrap;
+            display:none;
+        }
+
+.page {
+    margin:100px 0 0 76px;
+}
+
+.bandsInTown {
+    max-width:800px;
+ }
+ .vids {
+    display:none;
+ }
+
+
+@media screen and (max-width: 720px) {
+    .page {
+        margin-left:0;
+    }
+}
+

@@ -1,0 +1,15 @@
+{% load static %}
+<div class="credits">
+    <div class="fotorama"
+         data-maxheight="406"
+         data-allowfullscreen="true"
+         data-nav="false">
+        {% for credit in credits %}
+        <img src="{% static credit.image %}">
+        {% endfor %}
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('.fotorama').fotorama();
+</script>

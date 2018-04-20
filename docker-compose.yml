@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  db:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+            MYSQL_ROOT_PASSWORD: pass123
+            MYSQL_DATABASE: database
+            MYSQL_USER: user
+            MYSQL_PASSWORD: password
+  web:
+    build: .
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
